@@ -18,6 +18,7 @@ export function SignUpRequest(SignUpData) {
                 });
             })
             .catch((error) => {
+                alert("Error Occurred Please try again.");
                 dispatch(SignUpRequestFailed(error));
             });
     }

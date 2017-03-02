@@ -21,6 +21,21 @@ export function applicationReducer(state = initial_state, action) {
       state = newState;
       return state;
     }
+    case ActionTypes.updateBloodRequestSuccess: {
+      var newState = Object.assign({}, state, { allBloods: action.data });
+      state = newState;
+      return state;
+    }
+    case ActionTypes.logOutRequestSuccess: {
+      var newState = Object.assign({});
+      state = newState;
+      return state;
+    }
+    case ActionTypes.loadUserRequest: {
+      var newState = Object.assign({}, state);
+      state = newState;
+      return state;
+    }
     default:
       return state;
   }

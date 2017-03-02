@@ -1,21 +1,33 @@
 const actionTypes = {
-  LoadInitialState : 'LoadInitialState',
+  LoadInitialState: 'LoadInitialState',
 
-  LoginRequest        : 'LoginRequest',
-  LoginRequestFailed  : 'LoginRequestFailed',
-  LoginRequestSuccess : 'LoginRequestSuccess',
+  LoginRequest: 'LoginRequest',
+  LoginRequestFailed: 'LoginRequestFailed',
+  LoginRequestSuccess: 'LoginRequestSuccess',
 
-  SignUpRequest        : 'SignUpRequest',
-  SignUpRequestFailed  : 'SignUpRequestFailed',
-  SignUpRequestSuccess : 'SignUpRequestSuccess',
+  loadUserRequest: 'loadUserRequest',
+  loadUserRequestFailed: 'loadUserRequestFailed',
+  loadUserRequestSuccess: 'loadUserRequestSuccess',
 
-  donateBloodRequest        : 'donateBloodRequest',
-  donateBloodRequestFailed  : 'donateBloodRequestFailed',
-  donateBloodRequestSuccess : 'donateBloodRequestSuccess',
+  SignUpRequest: 'SignUpRequest',
+  SignUpRequestFailed: 'SignUpRequestFailed',
+  SignUpRequestSuccess: 'SignUpRequestSuccess',
 
-  requiredBloodRequest        : 'requiredBloodRequest',
-  requiredBloodRequestFailed  : 'requiredBloodRequestFailed',
-  requiredBloodRequestSuccess : 'requiredBloodRequestSuccess'
+  logOutRequest: 'logOutRequest',
+  logOutRequestFailed: 'logOutRequestFailed',
+  logOutRequestSuccess: 'logOutRequestSuccess',
+
+  donateBloodRequest: 'donateBloodRequest',
+  donateBloodRequestFailed: 'donateBloodRequestFailed',
+  donateBloodRequestSuccess: 'donateBloodRequestSuccess',
+
+  requiredBloodRequest: 'requiredBloodRequest',
+  requiredBloodRequestFailed: 'requiredBloodRequestFailed',
+  requiredBloodRequestSuccess: 'requiredBloodRequestSuccess',
+
+  updateBloodRequest: 'updateBloodRequest',
+  updateBloodRequestFailed: 'updateBloodRequestFailed',
+  updateBloodRequestSuccess: 'updateBloodRequestSuccess'
 
 };
 

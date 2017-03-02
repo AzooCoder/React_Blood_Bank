@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as mat from 'material-ui';
 import {
-    hashHistory,
+    browserHistory,
     Router,
     Route,
     IndexRoute,
@@ -18,15 +18,23 @@ class Dashboard extends Component {
         this.donateBlood = this.donateBlood.bind(this);
     }
 
+
+
     componentDidMount() {
         //This is called for Loading Initial State
-        this.props.loadInitialState();
+        this.props.loadUserRequest();
+    }
+
+    componentWillReceiveProps() {
+        setTimeout(() => {
+            if (!this.props.application || !this.props.application.user) {
+                browserHistory.push('/login');
+            }
+        }, 5)
     }
 
     donateBlood() {
         this.props.donateBloodRequest(this.props.application.user);
-        // console.log(this.props);
-
     }
 
     render() {
@@ -37,21 +45,18 @@ class Dashboard extends Component {
             textAlign: 'center',
             display: 'inline-block',
         };
+        const customAnchor = {
+            textDecoration: 'none',
+            color: '#000'
+        }
         return (
             <div>
-                <mat.AppBar
-                    title="Dashboard"
-                    />
-                <mat.Drawer open={this.state.open}>
-                    <mat.MenuItem>Menu Item</mat.MenuItem>
-                    <mat.MenuItem>Menu Item 2</mat.MenuItem>
-                </mat.Drawer>
                 <div>
                     <mat.Paper style={style} zDepth={3} >
                         <h3 onClick={this.donateBlood}>I want to Donate Blood.</h3>
                     </mat.Paper>
                     <mat.Paper style={style} zDepth={3} >
-                        <Link to="/requiredblood"><h3>I Required Blood.</h3></Link>
+                        <Link to="/requiredblood" style={customAnchor}><h3>I Required Blood.</h3></Link>
                     </mat.Paper>
                 </div>
             </div>
