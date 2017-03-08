@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './signup.css';
 import * as mat from 'material-ui';
 import {
-    hashHistory,
+    browserHistory,
     Router,
     Route,
     IndexRoute,
@@ -35,6 +35,14 @@ class SignUp extends Component {
         this.props.loadInitialState();
     }
 
+    componentWillReceiveProps() {
+        setTimeout(() => {
+            if (this.props.application && this.props.application.user) {
+                browserHistory.push('/dashboard');
+            }
+        }, 5)
+    }
+
     handleBloodTypeChange = (event, index, value) => this.setState({ bloodType: value });
     handleGenderTypeChange = (event, index, value) => this.setState({ gender: value });
 
@@ -47,7 +55,7 @@ class SignUp extends Component {
         var address = this.refs.address.getValue();
         var bloodType = this.state.bloodType;
         var cellNumber = this.refs.cellNumber.getValue();
-        var userObj = { email: email, password: password, name: name, gender: gender, address: address, bloodType: bloodType, cellNumber: cellNumber };
+        var userObj = { email: email, password: password, name: name, gender: gender, address: address, bloodType: bloodType, cellNumber: cellNumber, isDonor : false };
         this.props.signUpRequest(userObj);
     }
 

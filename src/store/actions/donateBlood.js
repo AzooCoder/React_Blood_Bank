@@ -5,7 +5,7 @@ export function donateBloodRequest(donateBloodData) {
     return dispatch => {
         dispatch(DonateBloodRequest());
         fbConfigs.database.ref('/users/' + donateBloodData.uid + '/isDonor').once('value', isDonorsnap => {
-            if (isDonorsnap.val() == false) {
+            if (!isDonorsnap.val()) {
                 return fbConfigs.database.ref('/users/' + donateBloodData.uid + '/isDonor').set(true, (data) => {
                     return fbConfigs.database.ref('/users').orderByChild('isDonor').equalTo(true).once('value', snap => {
                         const todo = [];
